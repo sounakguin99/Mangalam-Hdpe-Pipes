@@ -424,15 +424,27 @@
                             <img src="images/Advanced HDPE Pipe Manufacturing Process Section/raw material.jpg" class="process-img" style="width: 33.333%; height: 100%; object-fit: cover; flex-shrink: 0;">
                         </div>
                         
-                        <!-- Mini Carousel Arrows -->
-                        <button id="process-sub-prev" style="position: absolute; left: 1.25rem; top: 50%; transform: translateY(-50%); background: #fff; border: none; border-radius: 50%; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: transform 0.2s; z-index: 10;">
+                        <!-- Mini Carousel Arrows (Hidden on Mobile) -->
+                        <button id="process-sub-prev" class="desktop-only-arrow" style="position: absolute; left: 1.25rem; top: 50%; transform: translateY(-50%); background: transparent; border: none; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: transform 0.2s; z-index: 10; padding: 0;">
                             <img src="images/Versatile Applications Across Industries Section/Frame 2147224779.png" style="height: 100%;" alt="Prev">
                         </button>
-                        <button id="process-sub-next" style="position: absolute; right: 1.25rem; top: 50%; transform: translateY(-50%); background: #fff; border: none; border-radius: 50%; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: transform 0.2s; z-index: 10;">
+                        <button id="process-sub-next" class="desktop-only-arrow" style="position: absolute; right: 1.25rem; top: 50%; transform: translateY(-50%); background: transparent; border: none; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: transform 0.2s; z-index: 10; padding: 0;">
                             <img src="images/Versatile Applications Across Industries Section/Frame 2147224780.png" style="height: 100%;" alt="Next">
                         </button>
                     </div>
                 </div>
+
+                <!-- Mobile Process Navigation -->
+                <div class="process-mobile-nav" style="display: none; justify-content: space-between; align-items: center; margin-top: 2rem; position: relative;">
+                    <div style="position: absolute; top: 50%; left: 0; right: 0; height: 1px; background: #e2e8f0; z-index: 1;"></div>
+                    <button id="process-sub-prev-mobile" style="position: relative; z-index: 2; padding: 0; background: #fff; border: none; cursor: pointer;">
+                        <img src="images/previous.png" style="height: 48px;" alt="Previous">
+                    </button>
+                    <button id="process-sub-next-mobile" style="position: relative; z-index: 2; padding: 0; background: #fff; border: none; cursor: pointer;">
+                        <img src="images/next.png" style="height: 48px;" alt="Next">
+                    </button>
+                </div>
+            </div>
             </div>
         </div>
     </section>
@@ -757,10 +769,12 @@
                 <h3>Didn't find what <span style="color: #263268;">you're looking for?</span></h3>
                 <p>Talk to our experts for custom solutions and tailored guidence.</p>
             </div>
-            <button class="cta-btn">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                Talk to an Expert
-            </button>
+            <a href="tel:7003026616" style="text-decoration: none;">
+                <button class="cta-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                    Talk to an Expert
+                </button>
+            </a>
         </div>
     </section>
 
@@ -872,12 +886,13 @@
                     margin-bottom: 0.75rem;
                 }
                 .phone-row select {
-                    width: 80px;
+                    width: 75px !important;
                     background: #fff;
                     border: 1px solid #E2E8F0;
-                    border-radius: 12px;
-                    padding: 0 1rem;
+                    border-radius: 10px;
+                    padding: 0 0.5rem !important;
                     cursor: pointer;
+                    flex-shrink: 0;
                 }
                 .phone-row input {
                     flex-grow: 1;
@@ -902,8 +917,28 @@
                 @media (max-width: 992px) {
                     .main-contact-card {
                         grid-template-columns: 1fr;
-                        padding: 3rem 2rem;
-                        gap: 3rem;
+                        padding: 3rem 1.25rem !important;
+                        gap: 2.5rem;
+                        text-align: left;
+                        border-radius: 30px;
+                        margin: 0 auto;
+                        width: 100%;
+                    }
+                    .contact-info-content {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: flex-start;
+                        text-align: left;
+                    }
+                    .contact-info-content h2 {
+                        font-size: 1.8rem !important;
+                        text-align: left;
+                    }
+                    .contact-info-content p {
+                        text-align: left;
+                    }
+                    .contact-white-card {
+                        text-align: left;
                     }
                 }
             </style>
@@ -914,7 +949,7 @@
                     <p>Get a personalized consultation and quote for machinery solutions tailored to your specific production requirements.</p>
                     <hr>
                     <p class="contact-direct">
-                        For immediate assistance, feel free to give us a direct call at <strong>+91-XXX-XXX-XXXX</strong>. You can also send us a quick email at <strong>info@meera.ind.com</strong>
+                        For immediate assistance, feel free to give us a direct call at <strong>+91-7003026616</strong>. You can also send us a quick email at <strong>info@meera.ind.com</strong>
                     </p>
                 </div>
                 <div class="contact-white-card">

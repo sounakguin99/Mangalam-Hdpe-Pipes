@@ -158,10 +158,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const processTitle = document.getElementById('process-title');
     const processDesc = document.getElementById('process-desc');
     const processBullets = document.getElementById('process-bullets');
-    const processPrevBtn = document.querySelector('.process-visual button:first-of-type');
-    const processNextBtn = document.querySelector('.process-visual button:last-of-type');
     const subPrevBtn = document.getElementById('process-sub-prev');
     const subNextBtn = document.getElementById('process-sub-next');
+    const subPrevBtnMobile = document.getElementById('process-sub-prev-mobile');
+    const subNextBtnMobile = document.getElementById('process-sub-next-mobile');
     const processTrack = document.querySelector('.process-track');
     
     let currentProcessIndex = 0;
@@ -265,18 +265,48 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    if (subPrevBtn && subNextBtn) {
-        subPrevBtn.addEventListener('click', (e) => {
-            e.preventDefault();
+    function handleProcessPrev(e) {
+        if (e) e.preventDefault();
+        if (window.innerWidth <= 767) {
+            let newIndex = (currentProcessIndex - 1 + processTabs.length) % processTabs.length;
+            processTabs[newIndex].click();
+            const tabScroller = document.querySelector('.tab-scroller');
+            if (tabScroller) {
+                const targetTab = processTabs[newIndex];
+                tabScroller.scrollTo({
+                    left: targetTab.offsetLeft - (tabScroller.offsetWidth / 2) + (targetTab.offsetWidth / 2),
+                    behavior: 'smooth'
+                });
+            }
+        } else {
             currentSubImageIndex = (currentSubImageIndex - 1 + 3) % 3;
             updateSubSlider();
-        });
-        subNextBtn.addEventListener('click', (e) => {
-            e.preventDefault();
+        }
+    }
+
+    function handleProcessNext(e) {
+        if (e) e.preventDefault();
+        if (window.innerWidth <= 767) {
+            let newIndex = (currentProcessIndex + 1) % processTabs.length;
+            processTabs[newIndex].click();
+            const tabScroller = document.querySelector('.tab-scroller');
+            if (tabScroller) {
+                const targetTab = processTabs[newIndex];
+                tabScroller.scrollTo({
+                    left: targetTab.offsetLeft - (tabScroller.offsetWidth / 2) + (targetTab.offsetWidth / 2),
+                    behavior: 'smooth'
+                });
+            }
+        } else {
             currentSubImageIndex = (currentSubImageIndex + 1) % 3;
             updateSubSlider();
-        });
+        }
     }
+
+    if (subPrevBtn) subPrevBtn.addEventListener('click', handleProcessPrev);
+    if (subNextBtn) subNextBtn.addEventListener('click', handleProcessNext);
+    if (subPrevBtnMobile) subPrevBtnMobile.addEventListener('click', handleProcessPrev);
+    if (subNextBtnMobile) subNextBtnMobile.addEventListener('click', handleProcessNext);
 
     /* =========================================
        5. Versatile Applications Carousel

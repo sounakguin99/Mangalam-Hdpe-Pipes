@@ -1210,24 +1210,36 @@ footer {
     background: #e2e8f0;
     z-index: 0;
   }
-  .process-visual img:first-child {
-    order: 1;
-    width: 100%;
-    height: auto !important;
-    margin-bottom: 2rem;
+  .process-visual {
+    height: 250px !important;
+    width: 100% !important;
+    display: block !important;
+    overflow: hidden !important;
+    border-radius: 20px !important;
+    margin-bottom: 2rem !important;
+    position: relative !important;
+  }
+  .process-track {
+    display: flex !important;
+    width: 300% !important;
+    height: 100% !important;
+    flex-shrink: 0 !important;
+  }
+  .process-img {
+    width: 33.333% !important;
+    height: 100% !important;
+    object-fit: cover !important;
   }
   .process-visual button {
-    order: 2;
-    z-index: 1;
-    position: static !important;
-    transform: none !important;
-    width: auto !important;
-    height: auto !important;
-    padding: 0 !important;
-    border-radius: 0 !important;
-    border: none !important;
-    background: transparent !important;
-    box-shadow: none !important;
+    display: none !important;
+  }
+  .process-mobile-nav {
+    display: flex !important;
+  }
+  .process-mobile-nav button {
+    background: #fff !important;
+    border-radius: 50px !important;
+    overflow: hidden !important;
   }
   .process-visual button img {
     display: block !important;
@@ -1412,10 +1424,11 @@ footer {
 }
 
 .modal-footer {
-    padding: 1rem 1.5rem !important; /* Force exact match with body padding */
+    padding: 1.5rem 0 0 0 !important;
     display: flex;
-    justify-content: flex-end; /* Use flex for absolute right alignment */
+    justify-content: flex-end;
     border-top: 2px dashed #f1f5f9;
+    margin-top: 1rem;
 }
 
 .btn-submit-modal {
