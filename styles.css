@@ -1,6 +1,6 @@
 /* Base styles */
 :root {
-  --primary-color: #263268;
+  --primary-color: #2B3990;
   --secondary-color: #e5e7eb;
   --text-color: #374151;
   --light-bg: #f3f4f6;
@@ -65,7 +65,7 @@ body {
 }
 
 .btn-primary:hover {
-  background-color: #1a234f;
+  background-color: #1E2867;
 }
 
 .btn-outline {
@@ -1260,6 +1260,10 @@ footer {
     padding: 2rem 1.5rem !important;
     gap: 1.5rem;
   }
+  .cta-banner a {
+    width: 100% !important;
+    display: block !important;
+  }
   .cta-text {
     width: 100%;
   }
@@ -1274,6 +1278,7 @@ footer {
   }
   .cta-btn {
     width: 100% !important;
+    max-width: none !important;
     justify-content: center !important;
     padding: 1rem !important;
   }
@@ -1432,7 +1437,7 @@ footer {
 }
 
 .btn-submit-modal {
-    background-color: #263268;
+    background-color: #2B3990;
     color: #fff;
     padding: 0.75rem 2rem;
     border-radius: 10px;
@@ -1445,7 +1450,7 @@ footer {
 }
 
 .btn-submit-modal:hover {
-    background-color: #1a234f;
+    background-color: #1E2867;
 }
 
 /* Secondary Download Modal Styles (Maintaining previous look for this one) */

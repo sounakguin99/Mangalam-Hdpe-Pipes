@@ -242,9 +242,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     t.textContent = t.dataset.stage;
                 });
                 tab.classList.add('active');
-                tab.style.background = '#263268';
+                tab.style.background = '#2B3990';
                 tab.style.color = '#fff';
-                tab.style.border = '1px solid #263268';
+                tab.style.border = '1px solid #2B3990';
                 
                 if (window.innerWidth <= 767) {
                     tab.textContent = `Step ${index + 1}/${processTabs.length}: ${stage}`;
