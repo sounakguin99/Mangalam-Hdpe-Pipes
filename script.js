@@ -158,6 +158,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const processTitle = document.getElementById('process-title');
     const processDesc = document.getElementById('process-desc');
     const processBullets = document.getElementById('process-bullets');
+    const processPrevBtn = document.querySelector('.process-visual button:first-of-type');
+    const processNextBtn = document.querySelector('.process-visual button:last-of-type');
+    const subPrevBtn = document.getElementById('process-sub-prev');
+    const subNextBtn = document.getElementById('process-sub-next');
+    const processTrack = document.querySelector('.process-track');
+    
+    let currentProcessIndex = 0;
+    let currentSubImageIndex = 0;
 
     const processData = {
         "Raw Material": {
@@ -202,10 +210,27 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
+    function updateSubSlider() {
+        if (processTrack) {
+            processTrack.style.transform = `translateX(-${currentSubImageIndex * 33.333}%)`;
+        }
+    }
+
     processTabs.forEach(tab => {
+        tab.dataset.stage = tab.textContent.trim();
+    });
+
+    if (window.innerWidth <= 767 && processTabs[0]) {
+        processTabs[0].textContent = `Step 1/${processTabs.length}: ${processTabs[0].dataset.stage}`;
+    }
+
+    processTabs.forEach((tab, index) => {
         tab.addEventListener('click', () => {
-            const stage = tab.textContent.trim();
+            const stage = tab.dataset.stage;
             const data = processData[stage];
+            currentProcessIndex = index;
+            currentSubImageIndex = 0; // Reset sub-slider on tab change
+            updateSubSlider();
 
             if (data && processTitle && processDesc && processBullets) {
                 // Update active state
@@ -214,11 +239,16 @@ document.addEventListener('DOMContentLoaded', () => {
                     t.style.background = '#fff';
                     t.style.color = '#64748b';
                     t.style.border = '1px solid #e2e8f0';
+                    t.textContent = t.dataset.stage;
                 });
                 tab.classList.add('active');
                 tab.style.background = '#263268';
                 tab.style.color = '#fff';
                 tab.style.border = '1px solid #263268';
+                
+                if (window.innerWidth <= 767) {
+                    tab.textContent = `Step ${index + 1}/${processTabs.length}: ${stage}`;
+                }
 
                 // Update text content
                 processTitle.textContent = data.title;
@@ -226,7 +256,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 // Update bullets
                 processBullets.innerHTML = data.bullets.map(text => `
-                    <div style="display: flex; align-items: center; gap: 0.75rem; color: #1e293b; font-weight: 500;">
+                    <div style="display: flex; align-items: center; gap: 0.75rem; color: #1e293b; font-weight: 500; font-size: 0.95rem;">
                         <img src="images/Vector6.png" alt="check" style="height: 14px;">
                         ${text}
                     </div>
@@ -234,6 +264,19 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    if (subPrevBtn && subNextBtn) {
+        subPrevBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            currentSubImageIndex = (currentSubImageIndex - 1 + 3) % 3;
+            updateSubSlider();
+        });
+        subNextBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            currentSubImageIndex = (currentSubImageIndex + 1) % 3;
+            updateSubSlider();
+        });
+    }
 
     /* =========================================
        5. Versatile Applications Carousel
@@ -293,4 +336,72 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 500);
         });
     }
+
+    /* =========================================
+       6. Modal Functionality
+       ========================================= */
+    const quoteTriggers = document.querySelectorAll('.btn-quote-trigger');
+    const downloadTriggers = document.querySelectorAll('.btn-download-trigger');
+    const overlays = document.querySelectorAll('.modal-overlay');
+
+    window.openModal = function(modalId) {
+        const modal = document.getElementById(modalId);
+        if (modal) {
+            modal.style.display = 'flex';
+            setTimeout(() => modal.classList.add('active'), 10);
+            document.body.style.overflow = 'hidden';
+        }
+    };
+
+    window.closeModal = function(modalId) {
+        const modal = document.getElementById(modalId);
+        if (modal) {
+            modal.classList.remove('active');
+            setTimeout(() => {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }, 300);
+        }
+    };
+
+    quoteTriggers.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            openModal('quoteModal');
+        });
+    });
+
+    downloadTriggers.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            openModal('downloadModal');
+        });
+    });
+
+    // Close on overlay click
+    overlays.forEach(overlay => {
+        overlay.addEventListener('click', (e) => {
+            if (e.target === overlay) {
+                closeModal(overlay.id);
+            }
+        });
+    });
+
+    window.handleFormSubmit = function(event, modalToClose) {
+        if (event) event.preventDefault();
+        
+        // 1. Close current modal if any
+        if (modalToClose) {
+            closeModal(modalToClose);
+        }
+        
+        // 2. Clear the form
+        const form = event.target;
+        if (form && form.reset) form.reset();
+        
+        // 3. Show Thank You Modal
+        setTimeout(() => {
+            openModal('thankYouModal');
+        }, 400); // Small delay to allow previous modal closure animation
+    };
 });

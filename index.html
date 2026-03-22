@@ -18,7 +18,7 @@
                 Premium HDPE Pipes & Coils
             </div>
             <div class="sticky-actions">
-                <button class="btn btn-primary" onclick="window.scrollTo(0, document.body.scrollHeight)">Get Custom Quote</button>
+                <button class="btn btn-primary btn-quote-trigger">Get Custom Quote</button>
             </div>
         </div>
     </div>
@@ -29,6 +29,15 @@
             <div class="logo">
                 <img src="images/Logo/logo.png" alt="Mangalam HOPE Pipes" style="height: 40px;">
             </div>
+            
+            <button class="hamburger-menu" onclick="document.querySelector('.mobile-nav-dropdown').classList.toggle('open')">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#263268" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
+
             <nav class="main-nav">
                 <ul>
                     <li><a href="#">About Us</a></li>
@@ -37,6 +46,15 @@
                 <button class="btn btn-primary">Contact Us</button>
             </nav>
         </div>
+        
+        <!-- Mobile Dropdown Navigation -->
+        <nav class="mobile-nav-dropdown">
+            <ul>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Products <span>v</span></a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </nav>
     </header>
 
     <div class="breadcrumb container">
@@ -93,22 +111,32 @@
                 </div>
             </div>
             <div class="hero-actions">
-                <button class="btn btn-primary lg">Get Custom Quote</button>
+                <button class="btn btn-primary lg btn-quote-trigger">Get Custom Quote</button>
                 <button class="btn btn-outline lg">View Technical Specs ></button>
             </div>
         </div>
     </section>
 
     <!-- Trusted By -->
-    <section class="trusted-by container">
+    <section class="trusted-by">
         <p class="trusted-title">Trusted by Hundreds of Companies Globally</p>
-        <div class="logos-grid">
-            <img src="images/Trusted partners Section/trustedbycompanies.png" alt="Trusted Company" style="height: 40px;">
-            <img src="images/Trusted partners Section/trustedbycompanies.png" alt="Trusted Company" style="height: 40px;">
-            <img src="images/Trusted partners Section/trustedbycompanies.png" alt="Trusted Company" style="height: 40px;">
-            <img src="images/Trusted partners Section/trustedbycompanies.png" alt="Trusted Company" style="height: 40px;">
-            <img src="images/Trusted partners Section/trustedbycompanies.png" alt="Trusted Company" style="height: 40px;">
-            <img src="images/Trusted partners Section/trustedbycompanies.png" alt="Trusted Company" style="height: 40px;">
+        <div class="logos-slider-container">
+            <div class="logos-slider-track">
+                <!-- Original Set -->
+                <img src="images/Trusted partners Section/trustedbycompanies.png" alt="Trusted Company" style="height: 40px;">
+                <img src="images/Trusted partners Section/trustedbycompanies.png" alt="Trusted Company" style="height: 40px;">
+                <img src="images/Trusted partners Section/trustedbycompanies.png" alt="Trusted Company" style="height: 40px;">
+                <img src="images/Trusted partners Section/trustedbycompanies.png" alt="Trusted Company" style="height: 40px;">
+                <img src="images/Trusted partners Section/trustedbycompanies.png" alt="Trusted Company" style="height: 40px;">
+                <img src="images/Trusted partners Section/trustedbycompanies.png" alt="Trusted Company" style="height: 40px;">
+                <!-- Duplicated Set for Loop -->
+                <img src="images/Trusted partners Section/trustedbycompanies.png" alt="Trusted Company" style="height: 40px;">
+                <img src="images/Trusted partners Section/trustedbycompanies.png" alt="Trusted Company" style="height: 40px;">
+                <img src="images/Trusted partners Section/trustedbycompanies.png" alt="Trusted Company" style="height: 40px;">
+                <img src="images/Trusted partners Section/trustedbycompanies.png" alt="Trusted Company" style="height: 40px;">
+                <img src="images/Trusted partners Section/trustedbycompanies.png" alt="Trusted Company" style="height: 40px;">
+                <img src="images/Trusted partners Section/trustedbycompanies.png" alt="Trusted Company" style="height: 40px;">
+            </div>
         </div>
     </section>
 
@@ -171,7 +199,7 @@
             </div>
 
             <div style="text-align: center; margin-top: 3rem;">
-                <button class="btn" style="background-color: transparent; border: 1px solid #cbd5e1; color: #ffffff; display: inline-flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1.5rem; border-radius: 8px; cursor: pointer;">
+                <button class="btn btn-download-trigger" style="background-color: transparent; border: 1px solid #cbd5e1; color: #ffffff; display: inline-flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1.5rem; border-radius: 8px; cursor: pointer;">
                     <img src="images/download.png" alt="Download" style="height: 16px;"> Download Full Technical Datasheet
                 </button>
             </div>
@@ -218,7 +246,7 @@
         </div>
         
         <div style="text-align: center;">
-            <button class="btn" style="background-color: #263268; color: #ffffff; padding: 0.75rem 2rem; border-radius: 8px; font-weight: 500; cursor: pointer; border: none;">Request a Quote</button>
+            <button class="btn btn-quote-trigger" style="background-color: #263268; color: #ffffff; padding: 0.75rem 2rem; border-radius: 8px; font-weight: 500; cursor: pointer; border: none;">Request a Quote</button>
         </div>
     </section>
 
@@ -345,14 +373,14 @@
     </section>
 
     <!-- Manufacturing Process -->
-    <section class="process-section" style="background-color: #f8fafc; padding: 6rem 0;">
+    <section class="process-section" style="background-color: #f8fafc; padding: 5rem 0;">
         <div class="container">
-            <div class="section-header" style="text-align: center; margin-bottom: 4rem; max-width: 800px; margin-left: auto; margin-right: auto;">
+            <div class="section-header" style="text-align: center; margin-bottom: 3rem; max-width: 800px; margin-left: auto; margin-right: auto;">
                 <h2 style="font-size: 2.5rem; color: #111827; margin-bottom: 1.5rem; font-weight: 700;">Advanced HDPE Pipe Manufacturing Process</h2>
                 <p style="color: #64748b; font-size: 1.05rem;">Our state-of-the-art extrusion technology ensures consistent quality, optimal material properties, and dimensional accuracy in every pipe we manufacture.</p>
             </div>
             
-            <div class="manufacturing-card" style="background: #fff; border: 1px solid #f1f5f9; border-radius: 24px; padding: 4rem 3rem; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.02), 0 4px 6px -2px rgba(0,0,0,0.02);">
+            <div class="manufacturing-card" style="background: #fff; border: 1px solid #f1f5f9; border-radius: 24px; padding: 3rem; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.02), 0 4px 6px -2px rgba(0,0,0,0.02);">
                 <div class="tab-scroller-container" style="position: relative; margin-bottom: 3.5rem;">
                     <!-- Connecting Line -->
                     <div style="position: absolute; top: 50%; left: 0; right: 0; height: 1px; background: #e2e8f0; z-index: 1;"></div>
@@ -369,29 +397,38 @@
                     </div>
                 </div>
                 
-                <div class="process-content-grid" style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 4rem; align-items: start; padding-left: 0.5rem;">
+                <div class="process-content-grid" style="display: grid; grid-template-columns: 0.7fr 1.3fr; gap: 3.5rem; align-items: center; padding-left: 0.5rem;">
                     <div class="process-info" style="padding-top: 1rem;">
-                        <h3 id="process-title" style="font-size: 2.25rem; color: #111827; margin-bottom: 1.5rem; font-weight: 600; letter-spacing: -0.02em;">High-Grade Raw Material Selection</h3>
-                        <p id="process-desc" style="color: #64748b; font-size: 1.125rem; line-height: 1.6; margin-bottom: 2.5rem; max-width: 500px;">Vacuum sizing tanks ensure precise outer diameter while internal pressure maintains perfect roundness and wall thickness uniformity.</p>
+                        <h3 id="process-title" style="font-size: 1.85rem; color: #111827; margin-bottom: 1rem; font-weight: 600; letter-spacing: -0.02em;">High-Grade Raw Material Selection</h3>
+                        <p id="process-desc" style="color: #64748b; font-size: 1rem; line-height: 1.6; margin-bottom: 2rem; max-width: 500px;">The foundation of quality begins with high-density polyethylene (HDPE) resins of the highest grade, specifically PE100 or PE80.</p>
                         <div id="process-bullets" class="process-bullets" style="display: flex; flex-direction: column; gap: 1.25rem;">
-                            <div style="display: flex; align-items: center; gap: 1rem; color: #1e293b; font-weight: 500; font-size: 1.05rem;">
+                            <div style="display: flex; align-items: center; gap: 1rem; color: #1e293b; font-weight: 500; font-size: 0.95rem;">
                                 <img src="images/Vector6.png" alt="check" style="height: 16px;">
                                 PE100 grade material
                             </div>
-                            <div style="display: flex; align-items: center; gap: 1rem; color: #1e293b; font-weight: 500; font-size: 1.05rem;">
+                            <div style="display: flex; align-items: center; gap: 1rem; color: #1e293b; font-weight: 500; font-size: 0.95rem;">
                                 <img src="images/Vector6.png" alt="check" style="height: 16px;">
                                 Optimal molecular weight distribution
                             </div>
+                            <div style="display: flex; align-items: center; gap: 1rem; color: #1e293b; font-weight: 500; font-size: 0.95rem;">
+                                <img src="images/Vector6.png" alt="check" style="height: 16px;">
+                                Superior stress crack resistance
+                            </div>
                         </div>
                     </div>
-                    <div class="process-visual" style="position: relative;">
-                        <img src="images/Advanced HDPE Pipe Manufacturing Process Section/raw material.jpg" alt="Manufacturing Step" style="width: 100%; border-radius: 24px; display: block; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.05);">
+                    <div class="process-visual" style="position: relative; height: 380px; width: 100%; overflow: hidden; border-radius: 24px;">
+                        <div class="process-track" style="display: flex; height: 100%; transition: transform 0.5s ease; width: 300%;">
+                            <img src="images/Advanced HDPE Pipe Manufacturing Process Section/raw material.jpg" class="process-img" style="width: 33.333%; height: 100%; object-fit: cover; flex-shrink: 0; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.05);">
+                            <!-- Duplicates for Slider Demo -->
+                            <img src="images/Advanced HDPE Pipe Manufacturing Process Section/raw material.jpg" class="process-img" style="width: 33.333%; height: 100%; object-fit: cover; flex-shrink: 0;">
+                            <img src="images/Advanced HDPE Pipe Manufacturing Process Section/raw material.jpg" class="process-img" style="width: 33.333%; height: 100%; object-fit: cover; flex-shrink: 0;">
+                        </div>
                         
                         <!-- Mini Carousel Arrows -->
-                        <button style="position: absolute; left: 1.25rem; top: 50%; transform: translateY(-50%); background: #fff; border: none; border-radius: 50%; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: transform 0.2s;">
+                        <button id="process-sub-prev" style="position: absolute; left: 1.25rem; top: 50%; transform: translateY(-50%); background: #fff; border: none; border-radius: 50%; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: transform 0.2s; z-index: 10;">
                             <img src="images/Versatile Applications Across Industries Section/Frame 2147224779.png" style="height: 100%;" alt="Prev">
                         </button>
-                        <button style="position: absolute; right: 1.25rem; top: 50%; transform: translateY(-50%); background: #fff; border: none; border-radius: 50%; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: transform 0.2s;">
+                        <button id="process-sub-next" style="position: absolute; right: 1.25rem; top: 50%; transform: translateY(-50%); background: #fff; border: none; border-radius: 50%; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: transform 0.2s; z-index: 10;">
                             <img src="images/Versatile Applications Across Industries Section/Frame 2147224780.png" style="height: 100%;" alt="Next">
                         </button>
                     </div>
@@ -463,7 +500,7 @@
                     <h3>Revolutionized our FIBC production efficiency!</h3>
                     <p>"Our new TFO machines have revolutionized our FIBC production. Precision engineering delivers consistent yarn strength critical for bulky applications."</p>
                     <div class="profile-section" style="display: flex; align-items: center; gap: 1rem;">
-                        <div style="width: 44px; height: 44px; border-radius: 50%; background: #e2e8f0;"></div>
+                        <img src="images/avatars/johann.png" alt="Johann Mueller" style="width: 44px; height: 44px; border-radius: 50%; object-fit: cover;">
                         <div>
                             <div style="font-weight: 600; color: #111827; font-size: 0.95rem;">Johann Mueller</div>
                             <div style="font-size: 0.8rem; color: #94a3b8;">Production Director</div>
@@ -476,7 +513,7 @@
                     <h3>Excellent support for specialized applications.</h3>
                     <p>"The durability and performance of Meera's machinery has significantly improved our product quality. Support for specialized applications is exceptional."</p>
                     <div class="profile-section" style="display: flex; align-items: center; gap: 1rem;">
-                        <div style="width: 44px; height: 44px; border-radius: 50%; background: #e2e8f0;"></div>
+                        <img src="images/avatars/carlos.png" alt="Carlos Mendoza" style="width: 44px; height: 44px; border-radius: 50%; object-fit: cover;">
                         <div>
                             <div style="font-weight: 600; color: #111827; font-size: 0.95rem;">Carlos Mendoza</div>
                             <div style="font-size: 0.8rem; color: #94a3b8;">Operations Manager</div>
@@ -489,7 +526,7 @@
                     <h3>Provides the exact specifications we need!</h3>
                     <p>"For technical textile applications, their machinery provides exact specifications. Their understanding of automotive requirements is exceptional."</p>
                     <div class="profile-section" style="display: flex; align-items: center; gap: 1rem;">
-                        <div style="width: 44px; height: 44px; border-radius: 50%; background: #e2e8f0;"></div>
+                        <img src="images/avatars/rajesh.png" alt="Rajesh Kumar" style="width: 44px; height: 44px; border-radius: 50%; object-fit: cover;">
                         <div>
                             <div style="font-weight: 600; color: #111827; font-size: 0.95rem;">Rajesh Kumar</div>
                             <div style="font-size: 0.8rem; color: #94a3b8;">Manufacturing Head</div>
@@ -502,7 +539,7 @@
                     <h3>Unmatched durability in harsh environments.</h3>
                     <p>"We've used several brands, but the durability of these machines in our humid coastal facilities is simply unmatched. Excellent longevity."</p>
                     <div class="profile-section" style="display: flex; align-items: center; gap: 1rem;">
-                        <div style="width: 44px; height: 44px; border-radius: 50%; background: #e2e8f0;"></div>
+                        <img src="images/avatars/chen.png" alt="Chen Lu" style="width: 44px; height: 44px; border-radius: 50%; object-fit: cover;">
                         <div>
                             <div style="font-weight: 600; color: #111827; font-size: 0.95rem;">Chen Lu</div>
                             <div style="font-size: 0.8rem; color: #94a3b8;">Technical Lead</div>
@@ -516,7 +553,7 @@
                     <h3>Revolutionized our FIBC production efficiency!</h3>
                     <p>"Our new TFO machines have revolutionized our FIBC production. Precision engineering delivers consistent yarn strength critical for bulky applications."</p>
                     <div class="profile-section" style="display: flex; align-items: center; gap: 1rem;">
-                        <div style="width: 44px; height: 44px; border-radius: 50%; background: #e2e8f0;"></div>
+                        <img src="images/avatars/johann.png" alt="Johann Mueller" style="width: 44px; height: 44px; border-radius: 50%; object-fit: cover;">
                         <div>
                             <div style="font-weight: 600; color: #111827; font-size: 0.95rem;">Johann Mueller</div>
                             <div style="font-size: 0.8rem; color: #94a3b8;">Production Director</div>
@@ -529,7 +566,7 @@
                     <h3>Excellent support for specialized applications.</h3>
                     <p>"The durability and performance of Meera's machinery has significantly improved our product quality. Support for specialized applications is exceptional."</p>
                     <div class="profile-section" style="display: flex; align-items: center; gap: 1rem;">
-                        <div style="width: 44px; height: 44px; border-radius: 50%; background: #e2e8f0;"></div>
+                        <img src="images/avatars/carlos.png" alt="Carlos Mendoza" style="width: 44px; height: 44px; border-radius: 50%; object-fit: cover;">
                         <div>
                             <div style="font-weight: 600; color: #111827; font-size: 0.95rem;">Carlos Mendoza</div>
                             <div style="font-size: 0.8rem; color: #94a3b8;">Operations Manager</div>
@@ -542,7 +579,7 @@
                     <h3>Provides the exact specifications we need!</h3>
                     <p>"For technical textile applications, their machinery provides exact specifications. Their understanding of automotive requirements is exceptional."</p>
                     <div class="profile-section" style="display: flex; align-items: center; gap: 1rem;">
-                        <div style="width: 44px; height: 44px; border-radius: 50%; background: #e2e8f0;"></div>
+                        <img src="images/avatars/rajesh.png" alt="Rajesh Kumar" style="width: 44px; height: 44px; border-radius: 50%; object-fit: cover;">
                         <div>
                             <div style="font-weight: 600; color: #111827; font-size: 0.95rem;">Rajesh Kumar</div>
                             <div style="font-size: 0.8rem; color: #94a3b8;">Manufacturing Head</div>
@@ -555,7 +592,7 @@
                     <h3>Unmatched durability in harsh environments.</h3>
                     <p>"We've used several brands, but the durability of these machines in our humid coastal facilities is simply unmatched. Excellent longevity."</p>
                     <div class="profile-section" style="display: flex; align-items: center; gap: 1rem;">
-                        <div style="width: 44px; height: 44px; border-radius: 50%; background: #e2e8f0;"></div>
+                        <img src="images/avatars/chen.png" alt="Chen Lu" style="width: 44px; height: 44px; border-radius: 50%; object-fit: cover;">
                         <div>
                             <div style="font-weight: 600; color: #111827; font-size: 0.95rem;">Chen Lu</div>
                             <div style="font-size: 0.8rem; color: #94a3b8;">Technical Lead</div>
@@ -882,7 +919,7 @@
                 </div>
                 <div class="contact-white-card">
                     <h3>Contact Us Today</h3>
-                    <form onsubmit="event.preventDefault();">
+                    <form onsubmit="event.preventDefault(); handleFormSubmit(event);">
                         <input type="text" placeholder="Full Name" class="form-input" required>
                         <input type="text" placeholder="Company Name" class="form-input" required>
                         <input type="email" placeholder="Email Address" class="form-input" required>
@@ -1075,6 +1112,68 @@
             </div>
         </div>
     </footer>
+
+    <!-- Modals -->
+    <div class="modal-overlay" id="quoteModal">
+        <div class="modal-box">
+            <div class="modal-top">
+                <h3>Request a call back</h3>
+                <button class="modal-close-btn" onclick="closeModal('quoteModal')">&times;</button>
+            </div>
+            <form class="modal-body" onsubmit="event.preventDefault(); handleFormSubmit(event, 'quoteModal');">
+                <div class="modal-inputs">
+                    <input type="text" placeholder="Full Name" required>
+                    <input type="text" placeholder="Company Name" required>
+                    <input type="email" placeholder="Email Address" required>
+                    <div class="phone-input-row">
+                        <div class="country-code">
+                            <span>+91</span>
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        </div>
+                        <input type="tel" placeholder="7003026616" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn-submit-modal">Submit Form</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="downloadModal">
+        <div class="modal-box">
+            <div class="modal-top">
+                <h3>Let us email the entire catalogue to you</h3>
+                <button class="modal-close-btn" onclick="closeModal('downloadModal')">&times;</button>
+            </div>
+            <form class="modal-body" onsubmit="event.preventDefault(); handleFormSubmit(event, 'downloadModal');">
+                <div class="modal-inputs">
+                    <div class="input-group">
+                        <label>Your Email *</label>
+                        <input type="email" placeholder="example@gmail.com" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Your Contact (Optional)</label>
+                        <input type="tel" placeholder="+91-0000000000">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn-submit-modal">Download Brochure</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="thankYouModal">
+        <div class="modal-box" style="text-align: center; padding: 3rem 2rem;">
+            <div style="background: #f0fdf4; color: #15803d; width: 64px; height: 64px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem auto;">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </div>
+            <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem; color: #111827;">Thank You!</h3>
+            <p style="color: #64748b; margin-bottom: 2rem;">Your submission has been received. Our team will get back to you shortly.</p>
+            <button class="btn btn-primary" onclick="closeModal('thankYouModal')" style="width: 100%; border-radius: 10px; padding: 0.85rem;">Close</button>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
